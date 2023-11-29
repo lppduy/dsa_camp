@@ -1,5 +1,5 @@
 public class _88_Merge_Sorted_Array {
-  public static void merge(int[] nums1, int m, int[] nums2, int n) {
+  public static void merge2(int[] nums1, int m, int[] nums2, int n) {
         
     for (int ai: nums2) {
       chenPhanTuVaoMang(ai,nums1,m);
@@ -26,6 +26,29 @@ public class _88_Merge_Sorted_Array {
 
     if(timDuocK == false) {
         a[m] = x;
+    }
+  }
+
+  public static void merge(int[] n1, int m, int[] n2, int n) {
+    int i = m - 1;
+    int j = n -1;
+    int k = (m+n) -1;
+
+    while(k >=0){
+      if(j<0){
+        n1[k] = n1[i];
+        i--;
+      } else if(i<0){
+        n1[k] = n2[j];
+        j--;
+      } else if (n1[i]>n2[j]){
+        n1[k] = n1[i];
+        i--;
+      } else {
+        n1[k] = n2[j];
+        j--;
+      }
+      k--;
     }
   }
 
